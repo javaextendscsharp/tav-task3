@@ -1,0 +1,29 @@
+        -:    0:Source:src/area.c
+        -:    1:#include <math.h>
+        -:    2:
+        3:    3:float area(char type, float a, float b, float c) 
+        -:    4:{
+        -:    5:  float res;
+        3:    6:  if (type == 'c') 
+        -:    7:  {
+        1:    8:    res = pow(a, 2) * M_PI;
+        1:    9:    return res;
+        -:   10:  } 
+        2:   11:  else if (type == 's') 
+        -:   12:  {
+        1:   13:    res = a * a;
+        1:   14:    return res;
+        -:   15:  } 
+        1:   16:  else if (type == 'r') 
+        -:   17:  {
+    #####:   18:    res = a * b;
+    #####:   19:    return res;
+        -:   20:  } 
+        1:   21:  else if (type == 't') 
+        -:   22:  {
+        1:   23:    res = (a + b + c) / 2;
+        1:   24:    return sqrt(res * (res - a) * (res - b) * (res - c));
+        -:   25:  } 
+        -:   26:  else
+    #####:   27:    return -1.0;
+        -:   28:}
