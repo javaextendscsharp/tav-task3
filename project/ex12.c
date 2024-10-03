@@ -33,11 +33,17 @@ void push(struct Node** head_ref, int new_data)
 
 int main()
 {
-  struct Node* head = NULL;
-  push(&head, 20);
-  push(&head, 4);
-  push(&head, 15);
-  push(&head, 35);
-  printNthFromLast(head, 4);
-  return 0;
+    struct Node* head = NULL;
+    
+    push(&head, 20);
+    push(&head, 4);
+    push(&head, 15);
+    push(&head, 35);
+    
+    printNthFromLast(head, 4);
+    printNthFromLast(head, 1);
+    printNthFromLast(head, 5);
+    printNthFromLast(head, 2);
+
+    return 0;
 }
