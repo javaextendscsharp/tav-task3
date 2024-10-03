@@ -50,5 +50,5 @@ int main()
   reverse(&head);
   printf("\nReversed linked list \n");
   printList(head);
-  getchar();
+  //getchar();
 }

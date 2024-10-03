@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #define N 4
 
@@ -58,11 +59,68 @@ bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N])
 
 int main()
 {
-  int maze[N][N] = { { 1, 0, 0, 0 },
-    { 1, 1, 0, 1 },
-    { 0, 1, 0, 0 },
-    { 1, 1, 1, 1 }
-  };
-  solveMaze(maze);
+  int maze1[N][N] = { { 1, 0, 0, 0 },
+                      { 1, 1, 0, 1 },
+                      { 0, 1, 0, 0 },
+                      { 1, 1, 1, 1 } };
+  printf("Test Case 1:\n");
+  solveMaze(maze1);
+  assert(isSafe(maze1, 0, 0) == true);  
+  assert(isSafe(maze1, -1, 0) == false);  
+  printf("\n");
+
+  int maze2[N][N] = { { 1, 0, 0, 0 },
+                      { 0, 1, 0, 0 },
+                      { 0, 0, 1, 0 },
+                      { 0, 0, 0, 1 } };
+  printf("Test Case 2:\n");
+  solveMaze(maze2);
+  printf("\n");
+
+  int maze3[N][N] = { { 1, 1, 1, 1 },
+                      { 0, 0, 0, 1 },
+                      { 0, 0, 0, 1 },
+                      { 0, 0, 0, 1 } };
+  printf("Test Case 3:\n");
+  solveMaze(maze3);
+  printf("\n");
+
+  int maze4[N][N] = { { 0, 0, 0, 0 },
+                      { 0, 0, 0, 0 },
+                      { 0, 0, 0, 0 },
+                      { 0, 0, 0, 0 } };
+  printf("Test Case 4:\n");
+  solveMaze(maze4);
+  printf("\n");
+
+  int maze5[N][N] = { { 1, 1, 0, 0 },
+                      { 1, 0, 1, 1 },
+                      { 1, 1, 1, 0 },
+                      { 0, 0, 1, 1 } };
+  printf("Test Case 5:\n");
+  solveMaze(maze5);
+  printf("\n");
+
+  int maze6[N][N] = { { 1, 1, 1, 0 },
+                      { 1, 0, 1, 0 },
+                      { 1, 1, 1, 1 },
+                      { 0, 0, 1, 1 } };
+  printf("Test Case 6:\n");
+  solveMaze(maze6);
+  printf("\n");
+
+  int maze[N][N] = {{ 1, 1, 1, 0 },
+                    { 1, 0, 1, 1 },
+                    { 1, 1, 0, 1 },
+                    { 0, 1, 1, 1 }};
+  
+  int sol[N][N] = {{ 0, 0, 0, 0 },
+                    { 0, 0, 0, 0 },
+                    { 0, 0, 0, 0 },
+                    { 0, 0, 0, 0 }};
+  sol[0][0] = 1;
+  assert(solveMazeUtil(maze, 0, 0, sol) == false);
+
   return 0;
 }
+
